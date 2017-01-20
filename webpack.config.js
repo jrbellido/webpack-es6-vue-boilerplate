@@ -1,59 +1,76 @@
 var fp = require("path")
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var config = require("./config")(process.argv);
+//var config = require("./config")(process.argv);
 
 module.exports = {
-  entry: {
-    app: "./app/client.js",
-    vendor: [
-      "redux",
-      "immutable",
-      "axios",
-      "process"
-    ]
-  },
-  output: {
-    path: __dirname + "/public/assets/",
-    publicPath: config.server.assetPath,
-    filename: "[name].js"
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      "process.env": {
-        "NODE_ENV": JSON.stringify("production")
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin("vendor", "vendor.js"),
-    new ExtractTextPlugin("[name].css")
-  ],
-  module: {
-    loaders: [
-      { 
-        test: /\.jsx?$/,
-        loader: "babel", 
-        exclude: /node_modules/, 
-        query: {
-          presets: ["es2015", "es2016"],
-          plugins: ["transform-decorators-legacy", "transform-class-properties", "transform-object-rest-spread"],
-          cacheDirectory: true
+    entry: {
+        app: "./src/app.js",
+        vendor: [
+            "vue",
+            "vue-router",
+            "vuex"
+        ]
+    },
+    output: {
+        path: __dirname + '/public/assets',
+        publicPath: '/public/assets/',
+        filename: '[name].js'
+    },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: 'vendor'
+        })
+        /*,
+         new webpack.optimize.UglifyJsPlugin({
+         compress: {
+         warnings: false
+         }
+         })
+         */
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        'scss': 'vue-style-loader!css-loader!sass-loader',
+                        'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                    }
+                }
+            },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|eot|otf|woff2|woff|ttf)(\?.*)?$/,
+                loader: 'file-loader'
+            },
+            {
+                test: /\.(json)$/,
+                loader: 'json-loader'
+            }
+        ]
+    },
+    resolve: {
+        extensions: ['.js', '.html', '.scss'],
+        alias: {
+            'vue$': 'vue/dist/vue.common.js'
         }
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|eot|otf|woff2|woff|ttf)(\?.*)?$/,
-        loader: "file"
-      },
-      {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("css!autoprefixer!sass")
-      },
-      {
-        test: /\.json$/,
-        loader: "json"
-      }
-    ]
-  },
-  resolve: {
-    extensions: ["", ".js"],
-  },
+    },
+    devtool: 'cheap-source-map',
+    devServer: {
+        historyApiFallback: true,
+        noInfo: true
+    },
+    performance: { hints: false }
 };

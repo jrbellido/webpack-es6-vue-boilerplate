@@ -61,7 +61,7 @@ function apiService(config) {
     app.get("/hotels", function(req, res) {
         console.log(`[POST] /hotels`);
 
-        var apitude = require("./app/lib/apitudeClient").default;
+        var apitude = require("./src/lib/apitudeClient").default;
 
         var params = {
             "destination": "PMI",

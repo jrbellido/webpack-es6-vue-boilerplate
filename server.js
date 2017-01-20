@@ -6,10 +6,10 @@ import favicon from "serve-favicon"
 import Handlebars from "handlebars"
 import {createStore, combineReducers, applyMiddleware} from "redux"
 
-//import routes from "./app/routes"
-//import fetchComponentData from "./app/lib/fetchComponentData"
-//import appReducers from "./app/reducers"
-//import promiseMiddleware from "./app/lib/promiseMiddleware"
+//import routes from "./src/routes"
+//import fetchComponentData from "./src/lib/fetchComponentData"
+//import appReducers from "./src/reducers"
+//import promiseMiddleware from "./src/lib/promiseMiddleware"
 
 const appServer = function (config) {
     const app = express()
