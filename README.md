@@ -1,4 +1,4 @@
-# webpack+React/ES6 backend scaffold
+# webpack+ES6+Vue boilerplate
 
 ## Getting started
 
@@ -12,7 +12,3 @@
 * Run:
 	* `npm run dev`
     * `npm run watch`
-
-## Sources
-
-Based on [isomorphic-redux](https://github.com/bananaoomarang/isomorphic-redux) and some other projects.

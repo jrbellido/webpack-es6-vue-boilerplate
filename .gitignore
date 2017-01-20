@@ -26,3 +26,6 @@ node_modules/
 # Project specific files
 public/assets/
 .development.js
+
+# WebStorm project files
+.idea

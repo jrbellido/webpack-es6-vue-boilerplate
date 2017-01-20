@@ -7,11 +7,6 @@ module.exports = {
   entry: {
     app: "./app/client.js",
     vendor: [
-      "react",
-      "react-dom",
-      "react-redux",
-      "react-router",
-	  "react-bootstrap",
       "redux",
       "immutable",
       "axios",
@@ -39,7 +34,7 @@ module.exports = {
         loader: "babel", 
         exclude: /node_modules/, 
         query: {
-          presets: ["es2015", "es2016", "react"],
+          presets: ["es2015", "es2016"],
           plugins: ["transform-decorators-legacy", "transform-class-properties", "transform-object-rest-spread"],
           cacheDirectory: true
         }
