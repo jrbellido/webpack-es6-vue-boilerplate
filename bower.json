@@ -1,0 +1,19 @@
+{
+  "name": "brunch-react-es6-backend-scaffold",
+  "description": "brunch+React/ES6 backend scaffold",
+  "main": "",
+  "authors": [
+    "Joan R. Bellido <jrbellido@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+  }
+}

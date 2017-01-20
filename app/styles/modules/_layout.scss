@@ -1,0 +1,21 @@
+body {
+	border-top: 6px solid $btn-primary-bg;
+}
+
+#app {
+	max-width: $screen-xs-max;
+}
+
+.no-h-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.no-v-margin {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.align-right {
+	text-align: right;
+}

@@ -1,0 +1,30 @@
+// Boostrap
+@import "./bootstrap-theme/_variables";
+// --
+$icon-font-path: "../../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
+// --
+@import "./bootstrap-theme/_custom";
+// /Boostrap
+
+// Font-awesome
+$fa-font-path: "../../node_modules/font-awesome/fonts";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+// /Font-awesome
+
+// Flatpickr
+//@import "../../node_modules/flatpickr/dist/flatpickr.min";
+@import "../../node_modules/flatpickr/dist/flatpickr.dark.min";
+// /Flatpickr
+
+// App
+@import "./modules/_base";
+@import "./modules/_layout";
+@import "./modules/_footer";
+@import "./modules/_nav";
+@import "./modules/_header";
+@import "./modules/_form";
+
+@import "./modules/_hotel_search";
+@import "./modules/_item_manager";
+// /App

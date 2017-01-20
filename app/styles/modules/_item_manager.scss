@@ -1,0 +1,22 @@
+.item-manager,
+.item-list {
+	max-width: $screen-xs-max;
+}
+
+.item-manager {
+	.heading {
+	    background: none repeat scroll 0 0 #fafafa;
+	    border-bottom: 1px solid #e8e8e8;
+	    border-top: 1px solid #e8e8e8;
+	    box-shadow: 0 6px 6px -4px rgba(0, 0, 0, 0.05) inset;
+	    margin-top: 0;
+    	padding: 20px 10px 10px 10px;
+	}
+}
+
+.item {
+	span {
+		display: inline-block;
+		width: 120px;
+	}
+}

@@ -1,0 +1,64 @@
+.btn {
+    border: 1px solid transparent;
+    border-width: 1px 1px 2px;
+    border-radius: .23em;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:active,
+    &:active:focus,
+    &:hover,
+    &:focus {
+    	border-color: transparent;
+    }
+}
+
+.btn-primary {
+    border-color: darken($btn-primary-bg, 15%);
+    background: $btn-primary-bg;
+    color: $btn-primary-color;
+
+    &:hover {
+        border-color: lighten(darken($btn-primary-bg, 15%), 15%);
+        background: lighten($btn-primary-bg, 15%);
+        color: lighten($btn-primary-color, 15%);
+    }
+}
+
+.btn,
+.form-control {
+	transition: none;
+
+	&:focus {
+	    box-shadow: 0 0 0 .133em $btn-primary-bg;
+	    border-color: $btn-primary-bg;
+	    transition: none;
+	}
+}
+
+.has-error {
+    .form-control {
+        transition: none;
+
+        &:focus {
+            box-shadow: 0 0 0 .133em $brand-danger;
+            border-color: $brand-danger;
+            transition: none;
+        }
+    }
+}
+
+.modal-content {
+    border-radius: 1px;
+
+    .modal-header {
+        background-color: $brand-primary;
+        color: #ffffff;
+
+        .close {
+            color: #ffffff;
+            text-shadow: none;
+            opacity: 0.8;
+        }
+    }
+}

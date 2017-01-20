@@ -1,0 +1,20 @@
+.pin-container {
+	column-count: 4;
+	column-gap: 10px;
+
+	.pin-item {
+		margin-bottom: 10px;
+		display: inline-block;
+		background-color: #EDF3F9;
+		
+		.pin-image {
+			width: 100%;
+			height: auto;
+
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+}
