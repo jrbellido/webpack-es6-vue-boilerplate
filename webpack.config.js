@@ -1,7 +1,7 @@
 var fp = require("path")
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-//var config = require("./config")(process.argv);
+var config = require("./config")(process.argv);
 
 module.exports = {
     entry: {
@@ -14,7 +14,7 @@ module.exports = {
     },
     output: {
         path: __dirname + '/public/assets',
-        publicPath: '/public/assets/',
+        publicPath: config.server.assetPath,
         filename: '[name].js'
     },
     plugins: [
