@@ -17,23 +17,6 @@ module.exports = {
         publicPath: config.server.assetPath,
         filename: '[name].js'
     },
-    plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            names: 'vendor'
-        })
-        /*,
-         new webpack.optimize.UglifyJsPlugin({
-         compress: {
-         warnings: false
-         }
-         })
-         */
-    ],
     module: {
         rules: [
             {
@@ -41,8 +24,12 @@ module.exports = {
                 loader: 'vue-loader',
                 options: {
                     loaders: {
+                        css: ExtractTextPlugin.extract({
+                            loader: 'css-loader',
+                            fallbackLoader: 'vue-style-loader' // <- this is a dep of vue-loader, so no need to explicitly install if using npm3
+                        }),
                         'scss': 'vue-style-loader!css-loader!sass-loader',
-                        'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+                        //'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
                     }
                 }
             },
@@ -67,10 +54,31 @@ module.exports = {
             'vue$': 'vue/dist/vue.common.js'
         }
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: 'vendor'
+        }),
+        new ExtractTextPlugin('styles.css')
+        /*,
+         new webpack.optimize.UglifyJsPlugin({
+         compress: {
+         warnings: false
+         }
+         })
+         */
+    ],
     devtool: 'cheap-source-map',
     devServer: {
         historyApiFallback: true,
         noInfo: true
     },
-    performance: { hints: false }
-};
+    performance: {
+        hints: false
+    }
+}
+;
